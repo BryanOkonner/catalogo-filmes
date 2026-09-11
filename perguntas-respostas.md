@@ -10,7 +10,7 @@ Escolhemos essas bibliotecas porque elas funcionam bem com o Expo e com o React 
 
  3. Qual biblioteca precisa ser instalada com npx expo install em vez de npm install, e por quê?
 
-As bibliotecas relacionadas ao Expo e ao React Native foram instaladas utilizando o comando npx expo install. No projeto, o Expo Router e o Expo Vector Icons foram instalados dessa forma. Isso é importante porque o comando verifica a versão do Expo SDK utilizada no projeto e procura instalar versões compatíveis. Já o Axios foi instalado com npm install, pois é uma biblioteca JavaScript que não depende diretamente da versão do Expo.
+As bibliotecas relacionadas ao Expo e ao React Native foram instaladas utilizando o comando npx expo install. No projeto, o Expo Vector Icons e as dependências de navegação utilizadas na configuração foram instalados dessa forma. O Expo Router já fazia parte da estrutura do projeto criado com o Expo. O comando npx expo install é importante porque verifica a versão do Expo SDK utilizada no projeto e procura instalar versões compatíveis. Já o Axios foi instalado com npm install, pois é uma biblioteca JavaScript que não depende diretamente da versão do Expo.
 
  4. As bibliotecas são mantidas e possuem documentação? Como isso foi verificado?
 
@@ -38,11 +38,11 @@ O principal componente reutilizável do projeto é o MovieCard. Ele é responsá
 
  10. Onde fica centralizada a comunicação com a API e por quê?
 
-A busca da lista de filmes fica centralizada no arquivo movieService.ts, dentro da pasta services. Essa organização foi escolhida para separar a comunicação principal com a API das telas do aplicativo. Na tela de detalhes, também é realizada uma requisição à API utilizando o ID do filme para buscar as informações completas. Essa separação facilita a organização e a manutenção do código.
+A comunicação com a API fica centralizada no arquivo movieService.ts, dentro da pasta services. Nesse arquivo ficam as funções responsáveis por buscar a lista de filmes e também os detalhes de um filme específico. As telas utilizam essas funções para obter os dados, sem precisar realizar as requisições diretamente. Essa organização facilita a manutenção e deixa o código mais organizado.
 
  11. O projeto funcionou sem erros após as instalações? Se não, quais ajustes foram necessários?
 
-Não funcionou completamente de primeira. Durante o desenvolvimento foram necessários alguns ajustes na estrutura das telas e na integração com a API. Também foi necessário corrigir a tela de detalhes para que ela recebesse o ID do filme e buscasse as informações diretamente na API. Depois desses ajustes, o aplicativo passou a executar corretamente e a apresentar os filmes e seus detalhes.
+Não funcionou completamente de primeira. Durante o desenvolvimento foram necessários alguns ajustes na estrutura das telas e na integração com a API. Também foi necessário corrigir a tela de detalhes para que ela recebesse o ID do filme e utilizasse a função de busca de detalhes do arquivo movieService.ts. Depois desses ajustes, o aplicativo passou a executar corretamente e a apresentar os filmes e seus detalhes.
 
  12. Houve conflito de versão com o Expo SDK? Como foi resolvido?
 
@@ -58,7 +58,7 @@ Sim. O README apresenta o objetivo do aplicativo, as tecnologias utilizadas, com
 
  15. O que o primeiro commit representa?
 
-O primeiro commit representará a primeira versão do projeto que será registrada no controle de versão. Ele deverá conter a estrutura do aplicativo, as telas, os componentes, os serviços e os arquivos necessários para executar o projeto, sem incluir arquivos que não devem ser enviados ao repositório.
+O primeiro commit representa a primeira versão do projeto que foi registrada no controle de versão. Ele contém a estrutura do aplicativo, as telas, os componentes, os serviços e os arquivos necessários para executar o projeto, sem incluir arquivos que não devem ser enviados ao repositório.
 
  16. Por que utilizar controle de versão desde o início?
 

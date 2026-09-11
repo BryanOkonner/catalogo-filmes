@@ -1,4 +1,3 @@
-import axios from 'axios';
 import { useLocalSearchParams } from 'expo-router';
 import { useEffect, useState } from 'react';
 import {
@@ -10,17 +9,7 @@ import {
   View,
 } from 'react-native';
 
-type MovieDetails = {
-  Title: string;
-  Poster: string;
-  Year: string;
-  Genre: string;
-  Director: string;
-  Actors: string;
-  Runtime: string;
-  imdbRating: string;
-  Plot: string;
-};
+import { getMovieDetails, MovieDetails } from '../services/movieService';
 
 export default function DetailsScreen() {
   const { id } = useLocalSearchParams();
@@ -34,15 +23,9 @@ export default function DetailsScreen() {
 
   async function loadMovie() {
     try {
-      const response = await axios.get('https://www.omdbapi.com/', {
-        params: {
-          apikey: process.env.EXPO_PUBLIC_OMDB_API_KEY,
-          i: id,
-          plot: 'full',
-        },
-      });
+      const data = await getMovieDetails(String(id));
 
-      setMovie(response.data);
+      setMovie(data);
     } catch (error) {
       console.log('ERRO AO CARREGAR DETALHES:', error);
     } finally {
@@ -77,15 +60,10 @@ export default function DetailsScreen() {
       <Text style={styles.title}>{movie.Title}</Text>
 
       <Text style={styles.info}>Ano: {movie.Year}</Text>
-
       <Text style={styles.info}>Gênero: {movie.Genre}</Text>
-
       <Text style={styles.info}>Diretor: {movie.Director}</Text>
-
       <Text style={styles.info}>Atores: {movie.Actors}</Text>
-
       <Text style={styles.info}>Duração: {movie.Runtime}</Text>
-
       <Text style={styles.info}>
         Nota IMDb: {movie.imdbRating}
       </Text>
