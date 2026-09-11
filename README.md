@@ -6,8 +6,10 @@ O aplicativo tem como objetivo mostrar um catálogo de filmes. Na tela inicial s
 
 Integrantes
 
- FELIPE LOUREIRO SOUZA
+ FELIPE LOUREIRO SOUZA (MUDOU DE GRUPO APOS ESSA ETAPA)
+ 
  EDUARDO SILVA BRANDAO FILHO
+ 
  FILLIPE BRYAN SANTOS DO COUTO REIS
 
 Tecnologias utilizadas
